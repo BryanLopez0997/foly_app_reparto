@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#222223">
+  <meta name="theme-color" content="#FFFFFF">
   <title>Foly Delivery · Foly Muebles · Distribución Interna</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -19,7 +19,8 @@
               lightgray: '#E5E1E6', /* Gris Claro - PANTONE 663 C */
               gray: '#8A8D8F',      /* Gris Medio - PANTONE 877 C */
               navy: '#201747',      /* Azul Marino - PANTONE 275 C */
-              black: '#222223'      /* Negro - Neutral Black C */
+              black: '#222223',     /* Negro - Neutral Black C */
+              paper: '#F7F6F8'      /* Tinte muy claro de Gris Claro, fondo de página */
             }
           },
           fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
@@ -33,7 +34,7 @@
     }
 
     .glow-foly {
-      box-shadow: 0 0 65px -15px rgba(218, 41, 28, 0.4);
+      box-shadow: 0 12px 40px -14px rgba(32, 23, 71, 0.22);
     }
 
     .modal-enter {
@@ -70,26 +71,26 @@
   </style>
 </head>
 
-<body class="bg-foly-black text-foly-lightgray min-h-screen antialiased selection:bg-foly-red selection:text-white">
+<body class="bg-foly-paper text-foly-black min-h-screen antialiased selection:bg-foly-red selection:text-white">
 
   <!-- HEADER -->
-  <header class="sticky top-0 z-40 border-b border-foly-gray/25 bg-foly-black/85 backdrop-blur-md">
+  <header class="sticky top-0 z-40 border-b border-foly-lightgray bg-white/90 backdrop-blur-md">
     <div class="mx-auto max-w-5xl px-4 h-16 flex items-center justify-between gap-3">
       <div class="flex items-center gap-3 min-w-0">
         <div
           class="h-10 w-10 shrink-0 rounded-lg bg-foly-red grid place-items-center font-black text-white tracking-tight shadow-md shadow-foly-red/30">
           CM</div>
         <div class="min-w-0">
-          <p class="font-bold text-white leading-tight truncate">Foly Delivery <span
-              class="hidden sm:inline font-normal text-foly-gray text-xs">· Foly Muebles</span></p>
-          <p class="flex items-center gap-1.5 text-xs text-foly-lightgray">
+          <p class="font-bold text-foly-black leading-tight truncate">Foly Delivery <span
+              class="hidden sm:inline font-normal text-foly-black/60 text-xs">· Foly Muebles</span></p>
+          <p class="flex items-center gap-1.5 text-xs text-foly-black/70">
             <span class="h-2 w-2 rounded-full bg-foly-red animate-pulse"></span> Distribución Interna
           </p>
         </div>
       </div>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXU7YMTEM_upfKetX4Gpl8N127UtDld1YYxvG9pSArhz4Sfg/viewform"
         target="_blank" rel="noopener noreferrer"
-        class="text-xs sm:text-sm font-semibold text-foly-lightgray hover:text-white transition whitespace-nowrap py-1.5 px-3 rounded-lg border border-foly-gray/30 bg-foly-navy/40 hover:border-foly-red/60">
+        class="text-xs sm:text-sm font-semibold text-foly-navy hover:text-foly-red transition whitespace-nowrap py-1.5 px-3 rounded-lg border border-foly-gray/40 bg-white hover:border-foly-red focus:outline-none focus-visible:ring-2 focus-visible:ring-foly-red">
         Formulario de incidencias &rarr;
       </a>
     </div>
@@ -99,28 +100,28 @@
 
     <!-- CARGA -->
     <section id="loading" aria-live="polite" class="animate-pulse">
-      <div class="rounded-3xl border border-foly-gray/30 bg-foly-navy/25 p-8 grid md:grid-cols-[1fr_auto] gap-8">
+      <div class="rounded-3xl border border-foly-lightgray bg-white p-8 grid md:grid-cols-[1fr_auto] gap-8">
         <div class="space-y-4">
-          <div class="h-6 w-44 rounded-full bg-foly-gray/30"></div>
-          <div class="h-10 w-3/4 rounded bg-foly-gray/30"></div>
-          <div class="h-4 w-full rounded bg-foly-gray/20"></div>
-          <div class="h-12 w-64 rounded-xl bg-foly-gray/30"></div>
+          <div class="h-6 w-44 rounded-full bg-foly-lightgray"></div>
+          <div class="h-10 w-3/4 rounded bg-foly-lightgray"></div>
+          <div class="h-4 w-full rounded bg-foly-lightgray"></div>
+          <div class="h-12 w-64 rounded-xl bg-foly-lightgray"></div>
         </div>
-        <div class="hidden md:block h-56 w-56 rounded-2xl bg-foly-gray/25"></div>
+        <div class="hidden md:block h-56 w-56 rounded-2xl bg-foly-lightgray"></div>
       </div>
-      <p class="mt-4 text-center text-sm text-foly-gray">Consultando versiones de Foly Delivery…</p>
+      <p class="mt-4 text-center text-sm text-foly-black/60">Consultando versiones de Foly Delivery…</p>
     </section>
 
     <!-- ERROR -->
-    <section id="error" class="hidden rounded-3xl border border-foly-red/60 bg-foly-darkred/15 p-8 sm:p-10 text-center"
+    <section id="error" class="hidden rounded-3xl border border-foly-red/40 bg-white p-8 sm:p-10 text-center shadow-sm"
       role="alert">
       <div
-        class="mx-auto mb-4 h-14 w-14 rounded-full bg-foly-red/20 grid place-items-center text-foly-red text-2xl font-black ring-1 ring-foly-red/50">
+        class="mx-auto mb-4 h-14 w-14 rounded-full bg-foly-red/10 grid place-items-center text-foly-red text-2xl font-black ring-1 ring-foly-red/30">
         !</div>
-      <h2 class="text-xl font-bold text-white">No pudimos cargar las versiones</h2>
-      <p id="error-msg" class="mt-2 text-sm text-foly-lightgray/90 max-w-xl mx-auto leading-relaxed"></p>
+      <h2 class="text-xl font-bold text-foly-black">No pudimos cargar las versiones</h2>
+      <p id="error-msg" class="mt-2 text-sm text-foly-black/70 max-w-xl mx-auto leading-relaxed"></p>
       <button id="retry-btn" type="button"
-        class="mt-6 rounded-xl bg-foly-red px-6 py-3 font-bold text-white hover:bg-foly-darkred transition shadow-lg shadow-foly-red/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white">Reintentar</button>
+        class="mt-6 rounded-xl bg-foly-red px-6 py-3 font-bold text-white hover:bg-foly-darkred transition shadow-lg shadow-foly-red/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-foly-navy">Reintentar</button>
     </section>
 
     <!-- CONTENIDO -->
@@ -128,12 +129,12 @@
 
       <!-- HERO -->
       <section
-        class="relative overflow-hidden rounded-3xl border border-foly-gray/30 bg-gradient-to-br from-foly-navy/70 via-foly-black to-foly-black p-6 sm:p-10 glow-foly">
+        class="relative overflow-hidden rounded-3xl border border-foly-lightgray border-t-4 border-t-foly-red bg-white p-6 sm:p-10 glow-foly">
         <div class="grid md:grid-cols-[1fr_auto] gap-8 sm:gap-10 items-center">
           <div>
             <div class="flex flex-wrap items-center gap-2 text-xs font-semibold">
               <span
-                class="inline-flex items-center gap-2 rounded-full bg-foly-red/15 px-3 py-1 text-white ring-1 ring-foly-red/50">
+                class="inline-flex items-center gap-2 rounded-full bg-foly-red/10 px-3 py-1 text-foly-darkred ring-1 ring-foly-red/30">
                 <span class="relative flex h-2 w-2">
                   <span
                     class="absolute inline-flex h-full w-full animate-ping rounded-full bg-foly-red opacity-75"></span>
@@ -142,27 +143,27 @@
                 <span id="hero-badge"></span>
               </span>
               <span id="hero-channel" class="rounded-full px-3 py-1 ring-1"></span>
-              <span id="hero-date" class="text-foly-gray font-normal"></span>
+              <span id="hero-date" class="text-foly-black/60 font-normal"></span>
             </div>
 
-            <h1 class="mt-5 text-3xl sm:text-5xl font-black tracking-tight text-white">
+            <h1 class="mt-5 text-3xl sm:text-5xl font-black tracking-tight text-foly-black">
               Foly Delivery <span class="text-foly-red" id="hero-version"></span>
             </h1>
-            <p class="mt-3 max-w-xl text-foly-lightgray/90 leading-relaxed text-sm sm:text-base">
+            <p class="mt-3 max-w-xl text-foly-black/75 leading-relaxed text-sm sm:text-base">
               Distribución privada para testers y personal interno de <strong>Foly Muebles</strong>. Te guiamos para
               superar los avisos de seguridad de Google Drive y Android.
             </p>
 
             <p id="hero-critical"
-              class="hidden mt-4 inline-flex items-center gap-2 rounded-xl bg-foly-red/20 px-3.5 py-2 text-sm text-white font-semibold ring-1 ring-foly-red">
+              class="hidden mt-4 inline-flex items-center gap-2 rounded-xl bg-foly-red/10 px-3.5 py-2 text-sm text-foly-darkred font-semibold ring-1 ring-foly-red/40">
               <span
-                class="text-foly-red bg-white rounded-full w-5 h-5 grid place-items-center font-bold text-xs">!</span>
+                class="text-white bg-foly-red rounded-full w-5 h-5 grid place-items-center font-bold text-xs">!</span>
               Actualización crítica: instálala cuanto antes.
             </p>
 
             <div class="mt-7 flex flex-col sm:flex-row gap-3">
               <button id="download-btn" type="button"
-                class="inline-flex items-center justify-center gap-2 rounded-xl bg-foly-red px-6 py-3.5 font-bold text-white shadow-xl shadow-foly-red/40 hover:bg-foly-darkred active:scale-[.98] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
+                class="inline-flex items-center justify-center gap-2 rounded-xl bg-foly-red px-6 py-3.5 font-bold text-white shadow-lg shadow-foly-red/25 hover:bg-foly-darkred active:scale-[.98] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-foly-navy">
                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
@@ -170,37 +171,37 @@
                 <span id="download-label">Descargar APK</span>
               </button>
               <button id="guide-btn" type="button"
-                class="inline-flex items-center justify-center rounded-xl border border-foly-gray/40 bg-foly-navy/40 px-6 py-3.5 font-semibold text-foly-lightgray hover:border-foly-red hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-foly-red">
+                class="inline-flex items-center justify-center rounded-xl border-2 border-foly-navy bg-white px-6 py-3.5 font-semibold text-foly-navy hover:bg-foly-navy hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-foly-red">
                 Guía de instalación paso a paso
               </button>
             </div>
 
             <dl class="mt-8 grid grid-cols-3 gap-3 max-w-md text-sm">
-              <div class="rounded-xl bg-foly-black/80 ring-1 ring-foly-gray/30 p-3">
-                <dt class="text-xs text-foly-gray">Tamaño</dt>
-                <dd id="meta-size" class="mt-0.5 font-bold text-white"></dd>
+              <div class="rounded-xl bg-foly-paper ring-1 ring-foly-lightgray p-3">
+                <dt class="text-xs text-foly-black/60">Tamaño</dt>
+                <dd id="meta-size" class="mt-0.5 font-bold text-foly-black"></dd>
               </div>
-              <div class="rounded-xl bg-foly-black/80 ring-1 ring-foly-gray/30 p-3">
-                <dt class="text-xs text-foly-gray">Requisito</dt>
-                <dd id="meta-android" class="mt-0.5 font-bold text-white"></dd>
+              <div class="rounded-xl bg-foly-paper ring-1 ring-foly-lightgray p-3">
+                <dt class="text-xs text-foly-black/60">Requisito</dt>
+                <dd id="meta-android" class="mt-0.5 font-bold text-foly-black"></dd>
               </div>
-              <div class="rounded-xl bg-foly-black/80 ring-1 ring-foly-gray/30 p-3">
-                <dt class="text-xs text-foly-gray">Build</dt>
-                <dd id="meta-build" class="mt-0.5 font-bold text-white"></dd>
+              <div class="rounded-xl bg-foly-paper ring-1 ring-foly-lightgray p-3">
+                <dt class="text-xs text-foly-black/60">Build</dt>
+                <dd id="meta-build" class="mt-0.5 font-bold text-foly-black"></dd>
               </div>
             </dl>
           </div>
 
           <!-- QR (solo md+) -->
           <aside
-            class="hidden md:flex flex-col items-center gap-3 rounded-2xl bg-foly-navy/40 ring-1 ring-foly-gray/30 p-5 shadow-lg">
-            <p class="text-xs font-semibold text-foly-lightgray">Escanea con tu Android</p>
-            <div class="rounded-xl bg-white p-2.5 shadow-md">
+            class="hidden md:flex flex-col items-center gap-3 rounded-2xl bg-foly-paper ring-1 ring-foly-lightgray p-5">
+            <p class="text-xs font-semibold text-foly-black/80">Escanea con tu Android</p>
+            <div class="rounded-xl bg-white p-2.5 ring-1 ring-foly-lightgray shadow-sm">
               <img id="qr-img" alt="Código QR para descargar la última versión" width="180" height="180"
                 class="h-[180px] w-[180px] block">
             </div>
             <button id="copy-btn" type="button"
-              class="w-full rounded-lg bg-foly-black/90 px-4 py-2 text-xs font-bold text-foly-lightgray hover:bg-foly-darkred hover:text-white transition ring-1 ring-foly-gray/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-foly-red">
+              class="w-full rounded-lg bg-white px-4 py-2 text-xs font-bold text-foly-navy hover:bg-foly-navy hover:text-white transition ring-1 ring-foly-gray/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-foly-red">
               Copiar enlace directo
             </button>
           </aside>
@@ -209,20 +210,20 @@
 
       <!-- HISTORIAL -->
       <section aria-labelledby="history-title">
-        <div class="flex items-end justify-between mb-5 border-b border-foly-gray/25 pb-3">
+        <div class="flex items-end justify-between mb-5 border-b border-foly-lightgray pb-3">
           <div>
-            <h2 id="history-title" class="text-2xl font-black text-white">Historial de compilaciones</h2>
-            <p class="text-xs text-foly-gray mt-0.5">Versiones registradas para pruebas y trazabilidad</p>
+            <h2 id="history-title" class="text-2xl font-black text-foly-black">Historial de compilaciones</h2>
+            <p class="text-xs text-foly-black/60 mt-0.5">Versiones registradas para pruebas y trazabilidad</p>
           </div>
           <span id="history-count"
-            class="text-xs font-semibold text-foly-gray bg-foly-navy/40 px-2.5 py-1 rounded-full border border-foly-gray/30"></span>
+            class="text-xs font-semibold text-foly-navy bg-white px-2.5 py-1 rounded-full border border-foly-gray/40"></span>
         </div>
         <ol id="history" class="space-y-4"></ol>
       </section>
     </div>
   </main>
 
-  <footer class="border-t border-foly-gray/25 py-8 text-center text-xs text-foly-gray">
+  <footer class="border-t border-foly-lightgray bg-white py-8 text-center text-xs text-foly-black/60">
     <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
       <p><strong>Foly Muebles</strong> · Foly Delivery (distribución privada)</p>
       <p>No compartir fuera de la organización.</p>
@@ -232,21 +233,21 @@
   <!-- WIZARD -->
   <div id="wizard" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
     role="dialog" aria-modal="true" aria-labelledby="wiz-title">
-    <div id="wiz-backdrop" class="absolute inset-0 bg-foly-black/85 backdrop-blur-sm"></div>
+    <div id="wiz-backdrop" class="absolute inset-0 bg-foly-black/60 backdrop-blur-sm"></div>
     <div
-      class="modal-enter relative w-full sm:max-w-lg max-h-[95vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl border border-foly-gray/40 bg-foly-black shadow-2xl shadow-foly-red/20">
+      class="modal-enter relative w-full sm:max-w-lg max-h-[95vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl border border-foly-lightgray bg-white shadow-2xl">
 
-      <div class="sticky top-0 z-10 bg-foly-black border-b border-foly-gray/20">
-        <div class="h-1.5 w-full bg-foly-navy">
+      <div class="sticky top-0 z-10 bg-white border-b border-foly-lightgray">
+        <div class="h-1.5 w-full bg-foly-lightgray">
           <div id="wiz-bar" class="h-full bg-foly-red transition-all duration-500" style="width:0%"></div>
         </div>
         <div class="flex items-center justify-between px-6 pt-4 pb-2">
-          <p class="text-xs font-bold text-foly-lightgray uppercase tracking-wider">
+          <p class="text-xs font-bold text-foly-black/70 uppercase tracking-wider">
             Paso <span id="wiz-step-num" class="text-foly-red font-black">1</span> de 3 · <span id="wiz-percent"
               class="text-foly-red font-black">0%</span>
           </p>
           <button id="wiz-close" type="button" aria-label="Cerrar guía"
-            class="rounded-lg p-1.5 text-foly-gray hover:bg-foly-navy hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-foly-red">
+            class="rounded-lg p-1.5 text-foly-black/60 hover:bg-foly-lightgray hover:text-foly-black transition focus:outline-none focus-visible:ring-2 focus-visible:ring-foly-red">
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round">
               <path d="M6 6l12 12M18 6L6 18" />
@@ -256,32 +257,32 @@
       </div>
 
       <div class="px-6 pb-6 pt-3">
-        <h3 id="wiz-title" class="text-xl font-black text-white"></h3>
-        <p id="wiz-desc" class="mt-2 text-sm leading-relaxed text-foly-lightgray/90"></p>
+        <h3 id="wiz-title" class="text-xl font-black text-foly-black"></h3>
+        <p id="wiz-desc" class="mt-2 text-sm leading-relaxed text-foly-black/75"></p>
         <div id="wiz-illustration" class="mt-4"></div>
 
         <label
-          class="mt-5 flex cursor-pointer items-start gap-3 rounded-xl bg-foly-navy/40 p-4 ring-1 ring-foly-gray/30 hover:ring-foly-red/60 transition">
+          class="mt-5 flex cursor-pointer items-start gap-3 rounded-xl bg-foly-paper p-4 ring-1 ring-foly-lightgray hover:ring-foly-red/60 transition">
           <input id="wiz-check" type="checkbox"
-            class="mt-0.5 h-5 w-5 rounded border-foly-gray bg-foly-black accent-foly-red cursor-pointer">
-          <span id="wiz-check-label" class="text-sm font-semibold text-white"></span>
+            class="mt-0.5 h-5 w-5 rounded border-foly-gray bg-white accent-foly-red cursor-pointer">
+          <span id="wiz-check-label" class="text-sm font-semibold text-foly-black"></span>
         </label>
 
         <div class="mt-6 flex items-center justify-between gap-3">
           <button id="wiz-prev" type="button"
-            class="rounded-xl px-4 py-2.5 text-sm font-bold text-foly-lightgray hover:bg-foly-navy transition disabled:opacity-30 disabled:hover:bg-transparent">Anterior</button>
+            class="rounded-xl px-4 py-2.5 text-sm font-bold text-foly-navy hover:bg-foly-lightgray transition disabled:opacity-30 disabled:hover:bg-transparent">Anterior</button>
           <div class="flex gap-2">
             <button id="wiz-next" type="button"
-              class="rounded-xl bg-foly-navy px-5 py-2.5 text-sm font-bold text-white ring-1 ring-foly-gray/40 hover:ring-foly-red/60 transition">Siguiente
+              class="rounded-xl bg-foly-navy px-5 py-2.5 text-sm font-bold text-white hover:bg-foly-black transition">Siguiente
               &rarr;</button>
             <button id="wiz-download" type="button"
-              class="hidden rounded-xl bg-foly-red px-5 py-2.5 text-sm font-black text-white shadow-lg shadow-foly-red/40 hover:bg-foly-darkred transition">Iniciar
+              class="hidden rounded-xl bg-foly-red px-5 py-2.5 text-sm font-black text-white shadow-md shadow-foly-red/25 hover:bg-foly-darkred transition">Iniciar
               Descarga Directa</button>
           </div>
         </div>
 
         <button id="wiz-download-link" type="button"
-          class="mt-4 block w-full text-center text-xs text-foly-gray hover:text-foly-red underline underline-offset-2 transition">
+          class="mt-4 block w-full text-center text-xs text-foly-black/60 hover:text-foly-red underline underline-offset-2 transition">
           ¿La descarga no inició? Toca aquí para reintentar
         </button>
       </div>
@@ -319,8 +320,8 @@
 
       function channelClasses(channel) {
         return channel === 'Estable'
-          ? 'bg-foly-navy/70 text-foly-lightgray ring-foly-navy'
-          : 'bg-foly-darkred/25 text-white ring-foly-darkred/60';
+          ? 'bg-foly-navy/10 text-foly-navy ring-foly-navy/30'
+          : 'bg-foly-red/10 text-foly-darkred ring-foly-red/30';
       }
 
       /** Valida el esquema de versions.json. */
@@ -410,20 +411,20 @@
           const isCurrent = index === 0;
           const card = el('li', {
             class: isCurrent
-              ? 'rounded-2xl border border-foly-red/60 bg-gradient-to-r from-foly-navy/40 to-foly-black p-5 ring-1 ring-foly-red/40 shadow-lg'
-              : 'rounded-2xl border border-foly-gray/25 bg-foly-black/70 p-5 opacity-90 hover:opacity-100 transition'
+              ? 'rounded-2xl border border-foly-red/40 border-l-4 border-l-foly-red bg-white p-5 shadow-md'
+              : 'rounded-2xl border border-foly-lightgray bg-white/70 p-5 hover:bg-white hover:shadow-sm transition'
           });
 
           const title = el('div', { class: 'flex flex-wrap items-center gap-2' }, [
-            el('h3', { class: `text-lg font-black ${isCurrent ? 'text-white' : 'text-foly-lightgray'}`, text: `v${v.version}` }),
+            el('h3', { class: `text-lg font-black ${isCurrent ? 'text-foly-black' : 'text-foly-black/80'}`, text: `v${v.version}` }),
             isCurrent ? el('span', { class: 'rounded-full bg-foly-red px-2.5 py-0.5 text-xs font-black text-white', text: 'Vigente' }) : null,
             el('span', { class: `rounded-full px-2.5 py-0.5 text-xs font-bold ring-1 ${channelClasses(v.channel)}`, text: v.channel }),
             v.critical ? el('span', { class: 'rounded-full bg-foly-darkred px-2.5 py-0.5 text-xs font-bold text-white', text: 'Crítica' }) : null
           ]);
 
-          const meta = el('p', { class: 'mt-2 text-xs text-foly-gray font-medium', text: `${formatDate(v.releaseDate)} · Build #${v.versionCode} · ${v.fileSize} · ${v.minAndroid}` });
+          const meta = el('p', { class: 'mt-2 text-xs text-foly-black/60 font-medium', text: `${formatDate(v.releaseDate)} · Build #${v.versionCode} · ${v.fileSize} · ${v.minAndroid}` });
 
-          const changes = el('ul', { class: 'mt-3 space-y-1.5 text-sm text-foly-lightgray/90' },
+          const changes = el('ul', { class: 'mt-3 space-y-1.5 text-sm text-foly-black/75' },
             v.changes.map((c) => el('li', { class: 'flex gap-2' }, [
               el('span', { class: isCurrent ? 'text-foly-red font-bold' : 'text-foly-gray', text: '▪' }),
               el('span', { text: c })
@@ -432,7 +433,7 @@
           const link = el('a', {
             class: isCurrent
               ? 'mt-4 inline-flex items-center gap-2 rounded-lg bg-foly-red px-4 py-2 text-sm font-bold text-white hover:bg-foly-darkred shadow-md shadow-foly-red/30 transition'
-              : 'mt-4 inline-flex items-center gap-2 rounded-lg border border-foly-gray/40 bg-foly-navy/30 px-4 py-2 text-sm font-semibold text-foly-lightgray hover:border-foly-red hover:text-white transition',
+              : 'mt-4 inline-flex items-center gap-2 rounded-lg border border-foly-navy/40 bg-white px-4 py-2 text-sm font-semibold text-foly-navy hover:bg-foly-navy hover:text-white transition',
             text: `Descargar APK v${v.version}`,
             attrs: { href: buildDriveUrl(v.driveId), rel: 'noopener noreferrer', target: '_blank' }
           });
@@ -468,8 +469,8 @@
           ta.remove();
         }
         btn.textContent = '¡Copiado!';
-        btn.classList.add('text-foly-red');
-        setTimeout(() => { btn.textContent = 'Copiar enlace directo'; btn.classList.remove('text-foly-red'); }, 2000);
+        btn.classList.remove('bg-white', 'text-foly-navy'); btn.classList.add('bg-foly-red', 'text-white');
+        setTimeout(() => { btn.textContent = 'Copiar enlace directo'; btn.classList.remove('bg-foly-red', 'text-white'); btn.classList.add('bg-white', 'text-foly-navy'); }, 2000);
       }
 
       /* ---------- Ilustraciones (literales estáticos, sin datos externos) ---------- */
@@ -482,8 +483,8 @@
         <rect x="35" y="44" width="250" height="134" rx="8" fill="#FFFFFF" stroke="#8A8D8F"/>
         <text x="50" y="68" font-family="Arial" font-size="12" font-weight="bold" fill="#222223">Google Drive no puede analizar</text>
         <text x="50" y="84" font-family="Arial" font-size="12" font-weight="bold" fill="#222223">este archivo en busca de virus.</text>
-        <text x="50" y="104" font-family="Arial" font-size="9" fill="#8A8D8F">carmaster.apk (+100 MB) supera el límite de análisis.</text>
-        <text x="50" y="116" font-family="Arial" font-size="9" fill="#8A8D8F">¿Deseas descargar de todos modos?</text>
+        <text x="50" y="104" font-family="Arial" font-size="9" fill="#5B5E60">carmaster.apk (+100 MB) supera el límite de análisis.</text>
+        <text x="50" y="116" font-family="Arial" font-size="9" fill="#5B5E60">¿Deseas descargar de todos modos?</text>
         <rect x="50" y="132" width="180" height="30" rx="6" fill="#DA291C"/>
         <text x="140" y="151" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#FFFFFF">Descargar de todos modos</text>
         <rect x="46" y="128" width="188" height="38" rx="10" fill="none" stroke="#DA291C" stroke-width="3" stroke-dasharray="6 4"/>
@@ -491,14 +492,14 @@
       </svg>`,
         // Paso 2: toggle de orígenes desconocidos
         `<svg viewBox="0 0 320 190" class="w-full rounded-xl ring-1 ring-foly-gray/40" role="img" aria-label="Simulación del permiso Confiar en esta fuente de Android">
-        <rect width="320" height="190" fill="#222223"/>
-        <rect x="75" y="8" width="170" height="174" rx="16" fill="#201747" stroke="#8A8D8F" stroke-width="1.5"/>
-        <text x="90" y="36" font-family="Arial" font-size="10.5" fill="#E5E1E6" font-weight="bold">Instalar apps desconocidas</text>
-        <rect x="88" y="48" width="144" height="42" rx="8" fill="#222223"/>
+        <rect width="320" height="190" fill="#E5E1E6"/>
+        <rect x="75" y="8" width="170" height="174" rx="16" fill="#FFFFFF" stroke="#8A8D8F" stroke-width="1.5"/>
+        <text x="90" y="36" font-family="Arial" font-size="10.5" fill="#222223" font-weight="bold">Instalar apps desconocidas</text>
+        <rect x="88" y="48" width="144" height="42" rx="8" fill="#F7F6F8"/>
         <circle cx="106" cy="69" r="10" fill="#DA291C"/><text x="106" y="73" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#FFFFFF">C</text>
-        <text x="124" y="66" font-family="Arial" font-size="9.5" fill="#E5E1E6">Chrome / Navegador</text>
-        <text x="124" y="79" font-family="Arial" font-size="8" fill="#8A8D8F">Permitir desde esta fuente</text>
-        <text x="90" y="118" font-family="Arial" font-size="10" fill="#E5E1E6">Confiar en esta fuente</text>
+        <text x="124" y="66" font-family="Arial" font-size="9.5" fill="#222223">Chrome / Navegador</text>
+        <text x="124" y="79" font-family="Arial" font-size="8" fill="#5B5E60">Permitir desde esta fuente</text>
+        <text x="90" y="118" font-family="Arial" font-size="10" fill="#222223">Confiar en esta fuente</text>
         <rect x="186" y="106" width="42" height="22" rx="11" fill="#DA291C"/>
         <circle cx="217" cy="117" r="8" fill="#FFFFFF"/>
         <rect x="85" y="100" width="150" height="34" rx="8" fill="none" stroke="#DA291C" stroke-width="2" stroke-dasharray="5 3"/>
@@ -507,12 +508,12 @@
       </svg>`,
         // Paso 3: Play Protect
         `<svg viewBox="0 0 320 190" class="w-full rounded-xl ring-1 ring-foly-gray/40" role="img" aria-label="Simulación de Google Play Protect con Más detalles e Instalar de todas formas">
-        <rect width="320" height="190" fill="#222223"/>
+        <rect width="320" height="190" fill="#E5E1E6"/>
         <rect x="35" y="10" width="250" height="170" rx="16" fill="#FFFFFF"/>
         <path d="M64 38l14-6 14 6v12c0 9-6 15-14 18-8-3-14-9-14-18z" fill="#DA291C"/>
         <path d="M72 46l5 5 8-9" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         <text x="100" y="44" font-family="Arial" font-size="11.5" font-weight="bold" fill="#222223">Bloqueado por Play Protect</text>
-        <text x="100" y="58" font-family="Arial" font-size="8" fill="#8A8D8F">App privada fuera de Google Play Store</text>
+        <text x="100" y="58" font-family="Arial" font-size="8" fill="#5B5E60">App privada fuera de Google Play Store</text>
         <text x="50" y="86" font-family="Arial" font-size="10" fill="#201747" font-weight="bold">Más detalles ▾</text>
         <rect x="46" y="74" width="94" height="18" rx="6" fill="none" stroke="#DA291C" stroke-width="2" stroke-dasharray="4 2"/>
         <rect x="50" y="98" width="220" height="30" rx="6" fill="#E5E1E6"/>
