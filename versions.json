@@ -1,5 +1,18 @@
 [
   {
+    "version": "1.2.0",
+    "versionCode": 4,
+    "releaseDate": "2026-11-05",
+    "driveId": "1v2fyhZmfW65pBUfwgcnXjvdowHVV3Bu6",
+    "fileSize": "113.2 MB",
+    "minAndroid": "Android 8.0+",
+    "channel": "Estable",
+    "critical": true,
+    "changes": [
+      "Varios cambios realizados"
+    ]
+  },
+  {
     "version": "1.1.0",
     "versionCode": 3,
     "releaseDate": "2026-11-04",
