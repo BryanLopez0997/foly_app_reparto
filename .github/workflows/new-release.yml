@@ -1,0 +1,78 @@
+name: Nueva versión APK
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Versión (ej. 1.2.0)'
+        required: true
+      versionCode:
+        description: 'VersionCode (entero)'
+        required: true
+      driveUrl:
+        description: 'URL de Google Drive (o ID)'
+        required: true
+      size:
+        description: 'Peso en MB (ej. 118 MB)'
+        required: true
+      changes:
+        description: 'Lista de cambios separados por |'
+        required: true
+      channel:
+        description: 'Canal'
+        required: false
+        default: 'Estable'
+        type: choice
+        options: [Estable, Beta]
+      critical:
+        description: '¿Actualización crítica?'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: new-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Actualizar versions.json
+        env:
+          IN_VERSION: ${{ inputs.version }}
+          IN_CODE: ${{ inputs.versionCode }}
+          IN_URL: ${{ inputs.driveUrl }}
+          IN_SIZE: ${{ inputs.size }}
+          IN_CHANGES: ${{ inputs.changes }}
+          IN_CHANNEL: ${{ inputs.channel }}
+          IN_CRITICAL: ${{ inputs.critical }}
+        run: |
+          node scripts/release.mjs \
+            --version "$IN_VERSION" \
+            --code "$IN_CODE" \
+            --driveUrl "$IN_URL" \
+            --size "$IN_SIZE" \
+            --changes "$IN_CHANGES" \
+            --channel "$IN_CHANNEL" \
+            --critical "$IN_CRITICAL"
+
+      - name: Commit y push
+        env:
+          IN_VERSION: ${{ inputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add versions.json
+          git commit -m "release: Carmaster App v${IN_VERSION}"
+          git push
+

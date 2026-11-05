@@ -1,0 +1,31 @@
+[
+  {
+    "version": "1.1.0",
+    "versionCode": 3,
+    "releaseDate": "2026-11-04",
+    "driveId": "1A2B3C4D5E6F7G8H9I0J_ID_ACTUAL",
+    "fileSize": "115 MB",
+    "minAndroid": "Android 8.0+",
+    "channel": "Estable",
+    "critical": true,
+    "changes": [
+      "Optimización en módulos de sincronización.",
+      "Soporte para carga offline de reportes.",
+      "Corrección de interfaz en tablets."
+    ]
+  },
+  {
+    "version": "1.0.1",
+    "versionCode": 2,
+    "releaseDate": "2026-10-20",
+    "driveId": "0Z9Y8X7W6V5U4T3S2R1Q_ID_ANTERIOR",
+    "fileSize": "108 MB",
+    "minAndroid": "Android 8.0+",
+    "channel": "Beta",
+    "critical": false,
+    "changes": [
+      "Versión preliminar para pruebas de integración con Plane.so."
+    ]
+  }
+]
+
