@@ -1,134 +1,206 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#020617">
-  <title>Carmaster App · Distribución Interna</title>
+  <meta name="theme-color" content="#222223">
+  <title>Foly Delivery · Foly Muebles · Distribución Interna</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            foly: {
+              red: '#DA291C',       /* Rojo Foly - PANTONE 485 C (dominante) */
+              darkred: '#8E1E2B',   /* Rojo Oscuro - PANTONE 7622 C */
+              lightgray: '#E5E1E6', /* Gris Claro - PANTONE 663 C */
+              gray: '#8A8D8F',      /* Gris Medio - PANTONE 877 C */
+              navy: '#201747',      /* Azul Marino - PANTONE 275 C */
+              black: '#222223'      /* Negro - Neutral Black C */
+            }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+        }
+      }
+    };
   </script>
   <style>
-    body { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
-    .glow { box-shadow: 0 0 60px -15px rgba(79, 70, 229, .55); }
-    .modal-enter { animation: pop .2s ease-out; }
-    @keyframes pop { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
-    @keyframes nudge { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
-    .nudge { animation: nudge 1.4s ease-in-out infinite; }
+    body {
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .glow-foly {
+      box-shadow: 0 0 65px -15px rgba(218, 41, 28, 0.4);
+    }
+
+    .modal-enter {
+      animation: pop .2s ease-out;
+    }
+
+    @keyframes pop {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @keyframes nudge {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-3px);
+      }
+    }
+
+    .nudge {
+      animation: nudge 1.4s ease-in-out infinite;
+    }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-200 min-h-screen antialiased">
+
+<body class="bg-foly-black text-foly-lightgray min-h-screen antialiased selection:bg-foly-red selection:text-white">
 
   <!-- HEADER -->
-  <header class="sticky top-0 z-40 border-b border-slate-800 bg-slate-950/70 backdrop-blur-md">
+  <header class="sticky top-0 z-40 border-b border-foly-gray/25 bg-foly-black/85 backdrop-blur-md">
     <div class="mx-auto max-w-5xl px-4 h-16 flex items-center justify-between gap-3">
       <div class="flex items-center gap-3 min-w-0">
-        <div class="h-9 w-9 shrink-0 rounded-lg bg-indigo-600 grid place-items-center font-extrabold text-white tracking-tight">CM</div>
+        <div
+          class="h-10 w-10 shrink-0 rounded-lg bg-foly-red grid place-items-center font-black text-white tracking-tight shadow-md shadow-foly-red/30">
+          CM</div>
         <div class="min-w-0">
-          <p class="font-semibold text-white leading-tight truncate">Carmaster App</p>
-          <p class="hidden sm:flex items-center gap-1.5 text-xs text-emerald-400">
-            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Distribución Interna
+          <p class="font-bold text-white leading-tight truncate">Foly Delivery <span
+              class="hidden sm:inline font-normal text-foly-gray text-xs">· Foly Muebles</span></p>
+          <p class="flex items-center gap-1.5 text-xs text-foly-lightgray">
+            <span class="h-2 w-2 rounded-full bg-foly-red animate-pulse"></span> Distribución Interna
           </p>
         </div>
       </div>
-      <a href="https://proyectos.whipple.mx" target="_blank" rel="noopener noreferrer"
-         class="text-sm font-medium text-indigo-300 hover:text-white transition whitespace-nowrap">Portal de Seguimiento &rarr;</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXU7YMTEM_upfKetX4Gpl8N127UtDld1YYxvG9pSArhz4Sfg/viewform"
+        target="_blank" rel="noopener noreferrer"
+        class="text-xs sm:text-sm font-semibold text-foly-lightgray hover:text-white transition whitespace-nowrap py-1.5 px-3 rounded-lg border border-foly-gray/30 bg-foly-navy/40 hover:border-foly-red/60">
+        Formulario de incidencias &rarr;
+      </a>
     </div>
   </header>
 
-  <main class="mx-auto max-w-5xl px-4 py-10 sm:py-14">
+  <main class="mx-auto max-w-5xl px-4 py-8 sm:py-12">
 
-    <!-- ESTADO: CARGA -->
+    <!-- CARGA -->
     <section id="loading" aria-live="polite" class="animate-pulse">
-      <div class="rounded-3xl border border-slate-800 bg-slate-900 p-8 grid md:grid-cols-[1fr_auto] gap-8">
+      <div class="rounded-3xl border border-foly-gray/30 bg-foly-navy/25 p-8 grid md:grid-cols-[1fr_auto] gap-8">
         <div class="space-y-4">
-          <div class="h-6 w-40 rounded-full bg-slate-800"></div>
-          <div class="h-10 w-3/4 rounded bg-slate-800"></div>
-          <div class="h-4 w-full rounded bg-slate-800"></div>
-          <div class="h-12 w-64 rounded-xl bg-slate-800"></div>
+          <div class="h-6 w-44 rounded-full bg-foly-gray/30"></div>
+          <div class="h-10 w-3/4 rounded bg-foly-gray/30"></div>
+          <div class="h-4 w-full rounded bg-foly-gray/20"></div>
+          <div class="h-12 w-64 rounded-xl bg-foly-gray/30"></div>
         </div>
-        <div class="hidden md:block h-56 w-56 rounded-2xl bg-slate-800"></div>
+        <div class="hidden md:block h-56 w-56 rounded-2xl bg-foly-gray/25"></div>
       </div>
-      <p class="mt-4 text-center text-sm text-slate-500">Cargando versiones disponibles…</p>
+      <p class="mt-4 text-center text-sm text-foly-gray">Consultando versiones de Foly Delivery…</p>
     </section>
 
-    <!-- ESTADO: ERROR -->
-    <section id="error" class="hidden rounded-3xl border border-red-900/60 bg-slate-900 p-10 text-center" role="alert">
-      <div class="mx-auto mb-4 h-12 w-12 rounded-full bg-red-500/10 grid place-items-center text-red-400 text-2xl font-bold">!</div>
-      <h2 class="text-xl font-semibold text-white">No pudimos cargar las versiones</h2>
-      <p id="error-msg" class="mt-2 text-sm text-slate-400"></p>
+    <!-- ERROR -->
+    <section id="error" class="hidden rounded-3xl border border-foly-red/60 bg-foly-darkred/15 p-8 sm:p-10 text-center"
+      role="alert">
+      <div
+        class="mx-auto mb-4 h-14 w-14 rounded-full bg-foly-red/20 grid place-items-center text-foly-red text-2xl font-black ring-1 ring-foly-red/50">
+        !</div>
+      <h2 class="text-xl font-bold text-white">No pudimos cargar las versiones</h2>
+      <p id="error-msg" class="mt-2 text-sm text-foly-lightgray/90 max-w-xl mx-auto leading-relaxed"></p>
       <button id="retry-btn" type="button"
-        class="mt-6 rounded-xl bg-indigo-600 px-6 py-3 font-semibold text-white hover:bg-indigo-500 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400">Reintentar</button>
+        class="mt-6 rounded-xl bg-foly-red px-6 py-3 font-bold text-white hover:bg-foly-darkred transition shadow-lg shadow-foly-red/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white">Reintentar</button>
     </section>
 
     <!-- CONTENIDO -->
-    <div id="content" class="hidden space-y-14">
+    <div id="content" class="hidden space-y-12">
 
       <!-- HERO -->
-      <section class="relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-6 sm:p-10 glow">
-        <div class="grid md:grid-cols-[1fr_auto] gap-10 items-center">
+      <section
+        class="relative overflow-hidden rounded-3xl border border-foly-gray/30 bg-gradient-to-br from-foly-navy/70 via-foly-black to-foly-black p-6 sm:p-10 glow-foly">
+        <div class="grid md:grid-cols-[1fr_auto] gap-8 sm:gap-10 items-center">
           <div>
-            <div class="flex flex-wrap items-center gap-2 text-xs font-medium">
-              <span class="inline-flex items-center gap-2 rounded-full bg-emerald-400/10 px-3 py-1 text-emerald-400 ring-1 ring-emerald-400/30">
+            <div class="flex flex-wrap items-center gap-2 text-xs font-semibold">
+              <span
+                class="inline-flex items-center gap-2 rounded-full bg-foly-red/15 px-3 py-1 text-white ring-1 ring-foly-red/50">
                 <span class="relative flex h-2 w-2">
-                  <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                  <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+                  <span
+                    class="absolute inline-flex h-full w-full animate-ping rounded-full bg-foly-red opacity-75"></span>
+                  <span class="relative inline-flex h-2 w-2 rounded-full bg-foly-red"></span>
                 </span>
                 <span id="hero-badge"></span>
               </span>
               <span id="hero-channel" class="rounded-full px-3 py-1 ring-1"></span>
-              <span id="hero-date" class="text-slate-400"></span>
+              <span id="hero-date" class="text-foly-gray font-normal"></span>
             </div>
 
-            <h1 class="mt-5 text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-              Carmaster App <span class="text-indigo-400" id="hero-version"></span>
+            <h1 class="mt-5 text-3xl sm:text-5xl font-black tracking-tight text-white">
+              Foly Delivery <span class="text-foly-red" id="hero-version"></span>
             </h1>
-            <p class="mt-3 max-w-xl text-slate-400">
-              Instala la última compilación privada para pruebas internas. Te guiamos paso a paso para evitar los avisos de seguridad de Android y Google Drive.
+            <p class="mt-3 max-w-xl text-foly-lightgray/90 leading-relaxed text-sm sm:text-base">
+              Distribución privada para testers y personal interno de <strong>Foly Muebles</strong>. Te guiamos para
+              superar los avisos de seguridad de Google Drive y Android.
             </p>
 
-            <p id="hero-critical" class="hidden mt-4 inline-flex items-center gap-2 rounded-lg bg-amber-400/10 px-3 py-2 text-sm text-amber-300 ring-1 ring-amber-400/30">
-              ⚠ Actualización crítica: se recomienda instalarla cuanto antes.
+            <p id="hero-critical"
+              class="hidden mt-4 inline-flex items-center gap-2 rounded-xl bg-foly-red/20 px-3.5 py-2 text-sm text-white font-semibold ring-1 ring-foly-red">
+              <span
+                class="text-foly-red bg-white rounded-full w-5 h-5 grid place-items-center font-bold text-xs">!</span>
+              Actualización crítica: instálala cuanto antes.
             </p>
 
             <div class="mt-7 flex flex-col sm:flex-row gap-3">
               <button id="download-btn" type="button"
-                class="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3.5 font-semibold text-white shadow-lg shadow-indigo-900/40 hover:bg-indigo-500 active:scale-[.98] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+                class="inline-flex items-center justify-center gap-2 rounded-xl bg-foly-red px-6 py-3.5 font-bold text-white shadow-xl shadow-foly-red/40 hover:bg-foly-darkred active:scale-[.98] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
+                </svg>
                 <span id="download-label">Descargar APK</span>
               </button>
               <button id="guide-btn" type="button"
-                class="inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900 px-6 py-3.5 font-semibold text-slate-200 hover:border-emerald-400/60 hover:text-emerald-300 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400">
+                class="inline-flex items-center justify-center rounded-xl border border-foly-gray/40 bg-foly-navy/40 px-6 py-3.5 font-semibold text-foly-lightgray hover:border-foly-red hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-foly-red">
                 Guía de instalación paso a paso
               </button>
             </div>
 
             <dl class="mt-8 grid grid-cols-3 gap-3 max-w-md text-sm">
-              <div class="rounded-xl bg-slate-900 ring-1 ring-slate-800 p-3">
-                <dt class="text-xs text-slate-500">Tamaño</dt>
-                <dd id="meta-size" class="mt-0.5 font-semibold text-white"></dd>
+              <div class="rounded-xl bg-foly-black/80 ring-1 ring-foly-gray/30 p-3">
+                <dt class="text-xs text-foly-gray">Tamaño</dt>
+                <dd id="meta-size" class="mt-0.5 font-bold text-white"></dd>
               </div>
-              <div class="rounded-xl bg-slate-900 ring-1 ring-slate-800 p-3">
-                <dt class="text-xs text-slate-500">Requisito</dt>
-                <dd id="meta-android" class="mt-0.5 font-semibold text-white"></dd>
+              <div class="rounded-xl bg-foly-black/80 ring-1 ring-foly-gray/30 p-3">
+                <dt class="text-xs text-foly-gray">Requisito</dt>
+                <dd id="meta-android" class="mt-0.5 font-bold text-white"></dd>
               </div>
-              <div class="rounded-xl bg-slate-900 ring-1 ring-slate-800 p-3">
-                <dt class="text-xs text-slate-500">Build</dt>
-                <dd id="meta-build" class="mt-0.5 font-semibold text-white"></dd>
+              <div class="rounded-xl bg-foly-black/80 ring-1 ring-foly-gray/30 p-3">
+                <dt class="text-xs text-foly-gray">Build</dt>
+                <dd id="meta-build" class="mt-0.5 font-bold text-white"></dd>
               </div>
             </dl>
           </div>
 
           <!-- QR (solo md+) -->
-          <aside class="hidden md:flex flex-col items-center gap-3 rounded-2xl bg-slate-900 ring-1 ring-slate-800 p-5">
-            <p class="text-sm font-medium text-slate-300">Escanea con tu Android</p>
-            <div class="rounded-xl bg-white p-2">
-              <img id="qr-img" alt="Código QR de descarga de la última versión" width="180" height="180" class="h-[180px] w-[180px]">
+          <aside
+            class="hidden md:flex flex-col items-center gap-3 rounded-2xl bg-foly-navy/40 ring-1 ring-foly-gray/30 p-5 shadow-lg">
+            <p class="text-xs font-semibold text-foly-lightgray">Escanea con tu Android</p>
+            <div class="rounded-xl bg-white p-2.5 shadow-md">
+              <img id="qr-img" alt="Código QR para descargar la última versión" width="180" height="180"
+                class="h-[180px] w-[180px] block">
             </div>
             <button id="copy-btn" type="button"
-              class="w-full rounded-lg bg-slate-800 px-4 py-2 text-sm font-medium text-slate-200 hover:bg-slate-700 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400">
+              class="w-full rounded-lg bg-foly-black/90 px-4 py-2 text-xs font-bold text-foly-lightgray hover:bg-foly-darkred hover:text-white transition ring-1 ring-foly-gray/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-foly-red">
               Copiar enlace directo
             </button>
           </aside>
@@ -137,406 +209,442 @@
 
       <!-- HISTORIAL -->
       <section aria-labelledby="history-title">
-        <div class="flex items-end justify-between mb-5">
-          <h2 id="history-title" class="text-2xl font-bold text-white">Historial de compilaciones</h2>
-          <span id="history-count" class="text-sm text-slate-500"></span>
+        <div class="flex items-end justify-between mb-5 border-b border-foly-gray/25 pb-3">
+          <div>
+            <h2 id="history-title" class="text-2xl font-black text-white">Historial de compilaciones</h2>
+            <p class="text-xs text-foly-gray mt-0.5">Versiones registradas para pruebas y trazabilidad</p>
+          </div>
+          <span id="history-count"
+            class="text-xs font-semibold text-foly-gray bg-foly-navy/40 px-2.5 py-1 rounded-full border border-foly-gray/30"></span>
         </div>
         <ol id="history" class="space-y-4"></ol>
       </section>
     </div>
   </main>
 
-  <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500">
-    Carmaster App · Distribución interna para testers y personal autorizado. No compartir fuera de la organización.
+  <footer class="border-t border-foly-gray/25 py-8 text-center text-xs text-foly-gray">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p><strong>Foly Muebles</strong> · Foly Delivery (distribución privada)</p>
+      <p>No compartir fuera de la organización.</p>
+    </div>
   </footer>
 
   <!-- WIZARD -->
-  <div id="wizard" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="wiz-title">
-    <div id="wiz-backdrop" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm"></div>
-    <div class="modal-enter relative w-full sm:max-w-lg max-h-[95vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl border border-slate-800 bg-slate-900 shadow-2xl">
-      <div class="sticky top-0 z-10 bg-slate-900">
-        <div class="h-1.5 w-full bg-slate-800">
-          <div id="wiz-bar" class="h-full bg-emerald-400 transition-all duration-500" style="width:0%"></div>
+  <div id="wizard" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
+    role="dialog" aria-modal="true" aria-labelledby="wiz-title">
+    <div id="wiz-backdrop" class="absolute inset-0 bg-foly-black/85 backdrop-blur-sm"></div>
+    <div
+      class="modal-enter relative w-full sm:max-w-lg max-h-[95vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl border border-foly-gray/40 bg-foly-black shadow-2xl shadow-foly-red/20">
+
+      <div class="sticky top-0 z-10 bg-foly-black border-b border-foly-gray/20">
+        <div class="h-1.5 w-full bg-foly-navy">
+          <div id="wiz-bar" class="h-full bg-foly-red transition-all duration-500" style="width:0%"></div>
         </div>
-        <div class="flex items-center justify-between px-6 pt-4">
-          <p class="text-xs font-medium text-slate-400">Paso <span id="wiz-step-num">1</span> de 3 · <span id="wiz-percent">0%</span></p>
-          <button id="wiz-close" type="button" aria-label="Cerrar guía" class="rounded-lg p-1.5 text-slate-400 hover:bg-slate-800 hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400">
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        <div class="flex items-center justify-between px-6 pt-4 pb-2">
+          <p class="text-xs font-bold text-foly-lightgray uppercase tracking-wider">
+            Paso <span id="wiz-step-num" class="text-foly-red font-black">1</span> de 3 · <span id="wiz-percent"
+              class="text-foly-red font-black">0%</span>
+          </p>
+          <button id="wiz-close" type="button" aria-label="Cerrar guía"
+            class="rounded-lg p-1.5 text-foly-gray hover:bg-foly-navy hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-foly-red">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
           </button>
         </div>
       </div>
 
       <div class="px-6 pb-6 pt-3">
-        <h3 id="wiz-title" class="text-xl font-bold text-white"></h3>
-        <p id="wiz-desc" class="mt-2 text-sm leading-relaxed text-slate-400"></p>
-        <div id="wiz-illustration" class="mt-5"></div>
+        <h3 id="wiz-title" class="text-xl font-black text-white"></h3>
+        <p id="wiz-desc" class="mt-2 text-sm leading-relaxed text-foly-lightgray/90"></p>
+        <div id="wiz-illustration" class="mt-4"></div>
 
-        <label class="mt-5 flex cursor-pointer items-start gap-3 rounded-xl bg-slate-950 p-4 ring-1 ring-slate-800 hover:ring-emerald-400/50 transition">
-          <input id="wiz-check" type="checkbox" class="mt-0.5 h-5 w-5 rounded border-slate-600 bg-slate-800 accent-emerald-400">
-          <span id="wiz-check-label" class="text-sm font-medium text-slate-200"></span>
+        <label
+          class="mt-5 flex cursor-pointer items-start gap-3 rounded-xl bg-foly-navy/40 p-4 ring-1 ring-foly-gray/30 hover:ring-foly-red/60 transition">
+          <input id="wiz-check" type="checkbox"
+            class="mt-0.5 h-5 w-5 rounded border-foly-gray bg-foly-black accent-foly-red cursor-pointer">
+          <span id="wiz-check-label" class="text-sm font-semibold text-white"></span>
         </label>
 
         <div class="mt-6 flex items-center justify-between gap-3">
-          <button id="wiz-prev" type="button" class="rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-300 hover:bg-slate-800 transition disabled:opacity-30 disabled:hover:bg-transparent">Anterior</button>
+          <button id="wiz-prev" type="button"
+            class="rounded-xl px-4 py-2.5 text-sm font-bold text-foly-lightgray hover:bg-foly-navy transition disabled:opacity-30 disabled:hover:bg-transparent">Anterior</button>
           <div class="flex gap-2">
-            <button id="wiz-next" type="button" class="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500 transition">Siguiente</button>
-            <button id="wiz-download" type="button" class="hidden rounded-xl bg-emerald-400 px-5 py-2.5 text-sm font-semibold text-slate-950 hover:bg-emerald-300 transition">Iniciar Descarga Directa</button>
+            <button id="wiz-next" type="button"
+              class="rounded-xl bg-foly-navy px-5 py-2.5 text-sm font-bold text-white ring-1 ring-foly-gray/40 hover:ring-foly-red/60 transition">Siguiente
+              &rarr;</button>
+            <button id="wiz-download" type="button"
+              class="hidden rounded-xl bg-foly-red px-5 py-2.5 text-sm font-black text-white shadow-lg shadow-foly-red/40 hover:bg-foly-darkred transition">Iniciar
+              Descarga Directa</button>
           </div>
         </div>
-        <button id="wiz-download-link" type="button" class="mt-4 block w-full text-center text-xs text-slate-500 hover:text-emerald-300 underline underline-offset-2">¿La descarga no inició? Reintentar descarga directa</button>
+
+        <button id="wiz-download-link" type="button"
+          class="mt-4 block w-full text-center text-xs text-foly-gray hover:text-foly-red underline underline-offset-2 transition">
+          ¿La descarga no inició? Toca aquí para reintentar
+        </button>
       </div>
     </div>
   </div>
 
   <script>
-  (() => {
-    'use strict';
+    (() => {
+      'use strict';
 
-    /* ---------- Utilidades ---------- */
-    const $ = (id) => document.getElementById(id);
-    const SVG_NS = 'http://www.w3.org/2000/svg';
-    const STORE_KEY = 'carmaster.wizard.v1';
+      /* ---------- Utilidades ---------- */
+      const $ = (id) => document.getElementById(id);
+      const STORE_KEY = 'foly.carmaster.wizard.v2';
 
-    /** Crea un nodo con textContent seguro (nunca innerHTML con datos externos). */
-    function el(tag, opts = {}, children = []) {
-      const node = document.createElement(tag);
-      if (opts.class) node.className = opts.class;
-      if (opts.text !== undefined) node.textContent = opts.text;
-      if (opts.attrs) for (const [k, v] of Object.entries(opts.attrs)) node.setAttribute(k, v);
-      for (const c of [].concat(children)) if (c) node.append(c);
-      return node;
-    }
-
-    /** URL de descarga directa para archivos >100 MB en Google Drive. */
-    function buildDriveUrl(id) {
-      return `https://drive.usercontent.google.com/download?id=${encodeURIComponent(id)}&export=download&confirm=t`;
-    }
-
-    function formatDate(iso) {
-      const d = new Date(`${iso}T12:00:00`);
-      if (isNaN(d)) return String(iso);
-      return d.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
-    }
-
-    function channelClasses(channel) {
-      return channel === 'Estable'
-        ? 'bg-indigo-600/15 text-indigo-300 ring-indigo-500/40'
-        : 'bg-amber-400/10 text-amber-300 ring-amber-400/30';
-    }
-
-    /** Valida el esquema de versions.json. */
-    function validate(data) {
-      if (!Array.isArray(data) || data.length === 0) throw new Error('El archivo debe ser un arreglo con al menos una versión.');
-      const strFields = ['version', 'releaseDate', 'driveId', 'fileSize', 'minAndroid', 'channel'];
-      data.forEach((v, i) => {
-        if (!v || typeof v !== 'object') throw new Error(`Elemento ${i} inválido.`);
-        for (const f of strFields) if (typeof v[f] !== 'string' || !v[f]) throw new Error(`Campo "${f}" inválido en el elemento ${i}.`);
-        if (!Number.isInteger(v.versionCode)) throw new Error(`"versionCode" inválido en el elemento ${i}.`);
-        if (!Array.isArray(v.changes) || v.changes.some((c) => typeof c !== 'string')) throw new Error(`"changes" inválido en el elemento ${i}.`);
-      });
-      return data;
-    }
-
-    /* ---------- Estado ---------- */
-    let versions = [];
-    let latest = null;
-    let step = 0;
-    let checks = [false, false, false];
-
-    function loadState() {
-      try {
-        const s = JSON.parse(localStorage.getItem(STORE_KEY) || 'null');
-        if (s && Array.isArray(s.checks) && s.checks.length === 3) checks = s.checks.map(Boolean);
-      } catch (_) { /* almacenamiento no disponible */ }
-    }
-    function saveState() {
-      try { localStorage.setItem(STORE_KEY, JSON.stringify({ checks })); } catch (_) { /* ignorar */ }
-    }
-
-    /* ---------- Carga de datos ---------- */
-    function show(section) {
-      $('loading').classList.toggle('hidden', section !== 'loading');
-      $('error').classList.toggle('hidden', section !== 'error');
-      $('content').classList.toggle('hidden', section !== 'content');
-    }
-
-    async function loadVersions() {
-      show('loading');
-      try {
-        const res = await fetch('./versions.json?v=' + new Date().getTime(), { cache: 'no-store' });
-        if (!res.ok) throw new Error(`El servidor respondió ${res.status}.`);
-        let json;
-        try { json = await res.json(); } catch (_) { throw new Error('versions.json no es un JSON válido.'); }
-        versions = validate(json);
-        latest = versions[0];
-        renderHero();
-        renderHistory();
-        show('content');
-      } catch (err) {
-        const hint = location.protocol === 'file:'
-          ? ' Estás abriendo el archivo directamente (file://), y el navegador bloquea la lectura de versions.json. Usa un servidor local (por ejemplo: npx serve, o python -m http.server) o abre la versión publicada en Vercel/Netlify/GitHub Pages.'
-          : '';
-        $('error-msg').textContent = (err.message || 'Error desconocido.') + hint;
-        show('error');
+      /** Crea un nodo con textContent seguro (nunca innerHTML con datos de versions.json). */
+      function el(tag, opts = {}, children = []) {
+        const node = document.createElement(tag);
+        if (opts.class) node.className = opts.class;
+        if (opts.text !== undefined) node.textContent = opts.text;
+        if (opts.attrs) for (const [k, v] of Object.entries(opts.attrs)) node.setAttribute(k, v);
+        for (const c of [].concat(children)) if (c) node.append(c);
+        return node;
       }
-    }
 
-    /* ---------- Render ---------- */
-    function renderHero() {
-      const v = latest;
-      const url = buildDriveUrl(v.driveId);
-      $('hero-badge').textContent = `Vigente • v${v.version}`;
-      const ch = $('hero-channel');
-      ch.textContent = v.channel;
-      ch.className = `rounded-full px-3 py-1 ring-1 ${channelClasses(v.channel)}`;
-      $('hero-date').textContent = formatDate(v.releaseDate);
-      $('hero-version').textContent = `v${v.version}`;
-      $('hero-critical').classList.toggle('hidden', !v.critical);
-      $('download-label').textContent = `Descargar APK v${v.version}`;
-      $('meta-size').textContent = v.fileSize;
-      $('meta-android').textContent = v.minAndroid;
-      $('meta-build').textContent = `#${v.versionCode}`;
-      $('qr-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(url)}`;
-    }
-
-    function renderHistory() {
-      const list = $('history');
-      list.replaceChildren();
-      $('history-count').textContent = `${versions.length} ${versions.length === 1 ? 'versión' : 'versiones'}`;
-
-      versions.forEach((v, index) => {
-        const isCurrent = index === 0;
-        const card = el('li', {
-          class: isCurrent
-            ? 'rounded-2xl border border-indigo-500/50 bg-slate-900 p-5 ring-1 ring-indigo-500/20'
-            : 'rounded-2xl border border-slate-800 bg-slate-900/50 p-5 opacity-90'
-        });
-
-        const title = el('div', { class: 'flex flex-wrap items-center gap-2' }, [
-          el('h3', { class: `text-lg font-bold ${isCurrent ? 'text-white' : 'text-slate-300'}`, text: `v${v.version}` }),
-          isCurrent ? el('span', { class: 'rounded-full bg-emerald-400/10 px-2.5 py-0.5 text-xs font-medium text-emerald-400 ring-1 ring-emerald-400/30', text: 'Actual' }) : null,
-          el('span', { class: `rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ${channelClasses(v.channel)}`, text: v.channel }),
-          v.critical ? el('span', { class: 'rounded-full bg-amber-400/10 px-2.5 py-0.5 text-xs font-medium text-amber-300 ring-1 ring-amber-400/30', text: 'Crítica' }) : null
-        ]);
-
-        const meta = el('p', { class: 'mt-2 text-xs text-slate-500', text: `${formatDate(v.releaseDate)} · Build #${v.versionCode} · ${v.fileSize} · ${v.minAndroid}` });
-
-        const changes = el('ul', { class: 'mt-3 space-y-1.5 text-sm text-slate-400' },
-          v.changes.map((c) => el('li', { class: 'flex gap-2' }, [
-            el('span', { class: isCurrent ? 'text-emerald-400' : 'text-slate-600', text: '•' }),
-            el('span', { text: c })
-          ])));
-
-        const link = el('a', {
-          class: isCurrent
-            ? 'mt-4 inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500 transition'
-            : 'mt-4 inline-flex items-center gap-2 rounded-lg border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-300 hover:border-slate-500 hover:text-white transition',
-          text: `Descargar v${v.version}`,
-          attrs: { href: buildDriveUrl(v.driveId), rel: 'noopener noreferrer', target: '_blank', download: '' }
-        });
-
-        card.append(title, meta, changes, link);
-        list.append(card);
-      });
-    }
-
-    /* ---------- Descarga ---------- */
-    function triggerDownload() {
-      if (!latest) return;
-      const a = document.createElement('a');
-      a.href = buildDriveUrl(latest.driveId);
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      a.download = '';
-      document.body.append(a);
-      a.click();
-      a.remove();
-    }
-
-    async function copyLink() {
-      const btn = $('copy-btn');
-      const url = buildDriveUrl(latest.driveId);
-      try {
-        await navigator.clipboard.writeText(url);
-      } catch (_) {
-        const ta = el('textarea', { attrs: { readonly: '' }, class: 'fixed opacity-0' });
-        ta.value = url;
-        document.body.append(ta);
-        ta.select();
-        try { document.execCommand('copy'); } catch (__) { /* ignorar */ }
-        ta.remove();
+      /** URL de descarga directa para Google Drive (+100 MB). */
+      function buildDriveUrl(id) {
+        return `https://drive.usercontent.google.com/download?id=${encodeURIComponent(id)}&export=download&confirm=t`;
       }
-      btn.textContent = '¡Copiado!';
-      btn.classList.add('text-emerald-400');
-      setTimeout(() => { btn.textContent = 'Copiar enlace directo'; btn.classList.remove('text-emerald-400'); }, 2000);
-    }
 
-    /* ---------- Ilustraciones (SVG/HTML estático, sin datos externos) ---------- */
-    const ILLUSTRATIONS = [
-      // Paso 1: aviso de Google Drive
-      `<svg viewBox="0 0 320 190" class="w-full rounded-xl ring-1 ring-slate-700" role="img" aria-label="Simulación del aviso de Google Drive: no se puede analizar el archivo en busca de virus">
-        <rect width="320" height="190" fill="#f8fafc"/>
-        <rect width="320" height="30" fill="#e2e8f0"/>
-        <circle cx="16" cy="15" r="6" fill="#4f46e5"/><rect x="30" y="11" width="70" height="8" rx="4" fill="#94a3b8"/>
-        <rect x="40" y="46" width="240" height="132" rx="8" fill="#fff" stroke="#cbd5e1"/>
-        <text x="56" y="70" font-family="Arial" font-size="12" font-weight="bold" fill="#0f172a">Google Drive no puede analizar</text>
-        <text x="56" y="86" font-family="Arial" font-size="12" font-weight="bold" fill="#0f172a">este archivo en busca de virus.</text>
-        <text x="56" y="106" font-family="Arial" font-size="9" fill="#64748b">carmaster.apk (115 MB) es demasiado grande</text>
-        <text x="56" y="118" font-family="Arial" font-size="9" fill="#64748b">para que Drive lo analice. ¿Descargar de todos modos?</text>
-        <rect x="56" y="136" width="170" height="28" rx="14" fill="#1a73e8"/>
-        <text x="141" y="154" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#fff">Descargar de todos modos</text>
-        <rect x="52" y="132" width="178" height="36" rx="18" fill="none" stroke="#34d399" stroke-width="3" stroke-dasharray="6 4"/>
-        <g class="nudge"><path d="M246 150l-14 0M240 144l-8 6 8 6" stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+      function formatDate(iso) {
+        const d = new Date(`${iso}T12:00:00`);
+        if (isNaN(d)) return String(iso);
+        return d.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+      }
+
+      function channelClasses(channel) {
+        return channel === 'Estable'
+          ? 'bg-foly-navy/70 text-foly-lightgray ring-foly-navy'
+          : 'bg-foly-darkred/25 text-white ring-foly-darkred/60';
+      }
+
+      /** Valida el esquema de versions.json. */
+      function validate(data) {
+        if (!Array.isArray(data) || data.length === 0) throw new Error('versions.json debe ser un arreglo con al menos una versión.');
+        const strFields = ['version', 'releaseDate', 'driveId', 'fileSize', 'minAndroid', 'channel'];
+        data.forEach((v, i) => {
+          if (!v || typeof v !== 'object') throw new Error(`Registro ${i} inválido.`);
+          for (const f of strFields) if (typeof v[f] !== 'string' || !v[f]) throw new Error(`Campo "${f}" inválido en el registro ${i}.`);
+          if (!Number.isInteger(v.versionCode)) throw new Error(`"versionCode" inválido en el registro ${i}.`);
+          if (!Array.isArray(v.changes) || v.changes.some((c) => typeof c !== 'string')) throw new Error(`"changes" inválido en el registro ${i}.`);
+        });
+        return data;
+      }
+
+      /* ---------- Estado ---------- */
+      let versions = [];
+      let latest = null;
+      let step = 0;
+      let checks = [false, false, false];
+
+      /** Los checks guardados solo se restauran si pertenecen a la versión vigente. */
+      function loadState(versionCode) {
+        checks = [false, false, false];
+        try {
+          const s = JSON.parse(localStorage.getItem(STORE_KEY) || 'null');
+          if (s && s.versionCode === versionCode && Array.isArray(s.checks) && s.checks.length === 3) checks = s.checks.map(Boolean);
+        } catch (_) { /* almacenamiento no disponible */ }
+      }
+      function saveState() {
+        try { localStorage.setItem(STORE_KEY, JSON.stringify({ versionCode: latest ? latest.versionCode : null, checks })); } catch (_) { /* ignorar */ }
+      }
+
+      /* ---------- Carga de datos ---------- */
+      function show(section) {
+        $('loading').classList.toggle('hidden', section !== 'loading');
+        $('error').classList.toggle('hidden', section !== 'error');
+        $('content').classList.toggle('hidden', section !== 'content');
+      }
+
+      async function loadVersions() {
+        show('loading');
+        try {
+          const res = await fetch('./versions.json?v=' + new Date().getTime(), { cache: 'no-store' });
+          if (!res.ok) throw new Error(`El servidor respondió con código ${res.status}.`);
+          let json;
+          try { json = await res.json(); } catch (_) { throw new Error('versions.json no tiene un formato JSON válido.'); }
+          versions = validate(json);
+          latest = versions[0];
+          loadState(latest.versionCode);
+          renderHero();
+          renderHistory();
+          show('content');
+        } catch (err) {
+          const hint = location.protocol === 'file:'
+            ? ' Estás abriendo el archivo con doble clic (file://) y el navegador bloquea la lectura de versions.json. Usa un servidor local (python -m http.server) o abre la versión publicada en Vercel/Netlify/GitHub Pages.'
+            : '';
+          $('error-msg').textContent = (err.message || 'Error desconocido.') + hint;
+          show('error');
+        }
+      }
+
+      /* ---------- Render ---------- */
+      function renderHero() {
+        const v = latest;
+        const url = buildDriveUrl(v.driveId);
+        $('hero-badge').textContent = `Vigente • v${v.version}`;
+        const ch = $('hero-channel');
+        ch.textContent = v.channel;
+        ch.className = `rounded-full px-3 py-1 ring-1 text-xs font-bold ${channelClasses(v.channel)}`;
+        $('hero-date').textContent = formatDate(v.releaseDate);
+        $('hero-version').textContent = `v${v.version}`;
+        $('hero-critical').classList.toggle('hidden', !v.critical);
+        $('download-label').textContent = `Descargar APK v${v.version}`;
+        $('meta-size').textContent = v.fileSize;
+        $('meta-android').textContent = v.minAndroid;
+        $('meta-build').textContent = `#${v.versionCode}`;
+        $('qr-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(url)}`;
+      }
+
+      function renderHistory() {
+        const list = $('history');
+        list.replaceChildren();
+        $('history-count').textContent = `${versions.length} ${versions.length === 1 ? 'compilación' : 'compilaciones'}`;
+
+        versions.forEach((v, index) => {
+          const isCurrent = index === 0;
+          const card = el('li', {
+            class: isCurrent
+              ? 'rounded-2xl border border-foly-red/60 bg-gradient-to-r from-foly-navy/40 to-foly-black p-5 ring-1 ring-foly-red/40 shadow-lg'
+              : 'rounded-2xl border border-foly-gray/25 bg-foly-black/70 p-5 opacity-90 hover:opacity-100 transition'
+          });
+
+          const title = el('div', { class: 'flex flex-wrap items-center gap-2' }, [
+            el('h3', { class: `text-lg font-black ${isCurrent ? 'text-white' : 'text-foly-lightgray'}`, text: `v${v.version}` }),
+            isCurrent ? el('span', { class: 'rounded-full bg-foly-red px-2.5 py-0.5 text-xs font-black text-white', text: 'Vigente' }) : null,
+            el('span', { class: `rounded-full px-2.5 py-0.5 text-xs font-bold ring-1 ${channelClasses(v.channel)}`, text: v.channel }),
+            v.critical ? el('span', { class: 'rounded-full bg-foly-darkred px-2.5 py-0.5 text-xs font-bold text-white', text: 'Crítica' }) : null
+          ]);
+
+          const meta = el('p', { class: 'mt-2 text-xs text-foly-gray font-medium', text: `${formatDate(v.releaseDate)} · Build #${v.versionCode} · ${v.fileSize} · ${v.minAndroid}` });
+
+          const changes = el('ul', { class: 'mt-3 space-y-1.5 text-sm text-foly-lightgray/90' },
+            v.changes.map((c) => el('li', { class: 'flex gap-2' }, [
+              el('span', { class: isCurrent ? 'text-foly-red font-bold' : 'text-foly-gray', text: '▪' }),
+              el('span', { text: c })
+            ])));
+
+          const link = el('a', {
+            class: isCurrent
+              ? 'mt-4 inline-flex items-center gap-2 rounded-lg bg-foly-red px-4 py-2 text-sm font-bold text-white hover:bg-foly-darkred shadow-md shadow-foly-red/30 transition'
+              : 'mt-4 inline-flex items-center gap-2 rounded-lg border border-foly-gray/40 bg-foly-navy/30 px-4 py-2 text-sm font-semibold text-foly-lightgray hover:border-foly-red hover:text-white transition',
+            text: `Descargar APK v${v.version}`,
+            attrs: { href: buildDriveUrl(v.driveId), rel: 'noopener noreferrer', target: '_blank' }
+          });
+
+          card.append(title, meta, changes, link);
+          list.append(card);
+        });
+      }
+
+      /* ---------- Descarga ---------- */
+      function triggerDownload() {
+        if (!latest) return;
+        const a = document.createElement('a');
+        a.href = buildDriveUrl(latest.driveId);
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        document.body.append(a);
+        a.click();
+        a.remove();
+      }
+
+      async function copyLink() {
+        const btn = $('copy-btn');
+        const url = buildDriveUrl(latest.driveId);
+        try {
+          await navigator.clipboard.writeText(url);
+        } catch (_) {
+          const ta = el('textarea', { attrs: { readonly: '' }, class: 'fixed opacity-0' });
+          ta.value = url;
+          document.body.append(ta);
+          ta.select();
+          try { document.execCommand('copy'); } catch (__) { /* ignorar */ }
+          ta.remove();
+        }
+        btn.textContent = '¡Copiado!';
+        btn.classList.add('text-foly-red');
+        setTimeout(() => { btn.textContent = 'Copiar enlace directo'; btn.classList.remove('text-foly-red'); }, 2000);
+      }
+
+      /* ---------- Ilustraciones (literales estáticos, sin datos externos) ---------- */
+      const ILLUSTRATIONS = [
+        // Paso 1: aviso de Google Drive
+        `<svg viewBox="0 0 320 190" class="w-full rounded-xl ring-1 ring-foly-gray/40" role="img" aria-label="Simulación del aviso de Google Drive con el botón Descargar de todos modos">
+        <rect width="320" height="190" fill="#E5E1E6"/>
+        <rect width="320" height="30" fill="#201747"/>
+        <circle cx="16" cy="15" r="6" fill="#DA291C"/><rect x="30" y="11" width="70" height="8" rx="4" fill="#E5E1E6"/>
+        <rect x="35" y="44" width="250" height="134" rx="8" fill="#FFFFFF" stroke="#8A8D8F"/>
+        <text x="50" y="68" font-family="Arial" font-size="12" font-weight="bold" fill="#222223">Google Drive no puede analizar</text>
+        <text x="50" y="84" font-family="Arial" font-size="12" font-weight="bold" fill="#222223">este archivo en busca de virus.</text>
+        <text x="50" y="104" font-family="Arial" font-size="9" fill="#8A8D8F">carmaster.apk (+100 MB) supera el límite de análisis.</text>
+        <text x="50" y="116" font-family="Arial" font-size="9" fill="#8A8D8F">¿Deseas descargar de todos modos?</text>
+        <rect x="50" y="132" width="180" height="30" rx="6" fill="#DA291C"/>
+        <text x="140" y="151" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#FFFFFF">Descargar de todos modos</text>
+        <rect x="46" y="128" width="188" height="38" rx="10" fill="none" stroke="#DA291C" stroke-width="3" stroke-dasharray="6 4"/>
+        <g class="nudge"><path d="M258 147h-16M250 141l-8 6 8 6" stroke="#DA291C" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
       </svg>`,
-      // Paso 2: toggle orígenes desconocidos
-      `<svg viewBox="0 0 320 190" class="w-full rounded-xl ring-1 ring-slate-700" role="img" aria-label="Simulación del ajuste Permitir desde esta fuente de Android">
-        <rect width="320" height="190" fill="#0f172a"/>
-        <rect x="80" y="8" width="160" height="174" rx="18" fill="#1e293b" stroke="#475569" stroke-width="2"/>
-        <text x="96" y="38" font-family="Arial" font-size="11" fill="#e2e8f0" font-weight="bold">Instalar apps desconocidas</text>
-        <rect x="94" y="52" width="132" height="42" rx="8" fill="#0f172a"/>
-        <circle cx="110" cy="73" r="10" fill="#4f46e5"/><text x="110" y="77" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#fff">C</text>
-        <text x="128" y="70" font-family="Arial" font-size="10" fill="#e2e8f0">Chrome / Navegador</text>
-        <text x="128" y="83" font-family="Arial" font-size="8" fill="#94a3b8">Permitir desde esta fuente</text>
-        <rect x="194" y="108" width="0" height="0"/>
-        <text x="96" y="124" font-family="Arial" font-size="10" fill="#e2e8f0">Confiar en esta fuente</text>
-        <rect x="186" y="110" width="40" height="22" rx="11" fill="#34d399"/>
-        <circle cx="215" cy="121" r="8" fill="#fff"/>
-        <rect x="92" y="104" width="138" height="32" rx="8" fill="none" stroke="#34d399" stroke-width="2" stroke-dasharray="5 3"/>
-        <rect x="94" y="148" width="132" height="22" rx="11" fill="#4f46e5"/>
-        <text x="160" y="163" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#fff">← Volver e instalar</text>
+        // Paso 2: toggle de orígenes desconocidos
+        `<svg viewBox="0 0 320 190" class="w-full rounded-xl ring-1 ring-foly-gray/40" role="img" aria-label="Simulación del permiso Confiar en esta fuente de Android">
+        <rect width="320" height="190" fill="#222223"/>
+        <rect x="75" y="8" width="170" height="174" rx="16" fill="#201747" stroke="#8A8D8F" stroke-width="1.5"/>
+        <text x="90" y="36" font-family="Arial" font-size="10.5" fill="#E5E1E6" font-weight="bold">Instalar apps desconocidas</text>
+        <rect x="88" y="48" width="144" height="42" rx="8" fill="#222223"/>
+        <circle cx="106" cy="69" r="10" fill="#DA291C"/><text x="106" y="73" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#FFFFFF">C</text>
+        <text x="124" y="66" font-family="Arial" font-size="9.5" fill="#E5E1E6">Chrome / Navegador</text>
+        <text x="124" y="79" font-family="Arial" font-size="8" fill="#8A8D8F">Permitir desde esta fuente</text>
+        <text x="90" y="118" font-family="Arial" font-size="10" fill="#E5E1E6">Confiar en esta fuente</text>
+        <rect x="186" y="106" width="42" height="22" rx="11" fill="#DA291C"/>
+        <circle cx="217" cy="117" r="8" fill="#FFFFFF"/>
+        <rect x="85" y="100" width="150" height="34" rx="8" fill="none" stroke="#DA291C" stroke-width="2" stroke-dasharray="5 3"/>
+        <rect x="88" y="146" width="144" height="24" rx="6" fill="#8E1E2B"/>
+        <text x="160" y="162" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#FFFFFF">← Volver e instalar</text>
       </svg>`,
-      // Paso 3: Play Protect
-      `<svg viewBox="0 0 320 190" class="w-full rounded-xl ring-1 ring-slate-700" role="img" aria-label="Simulación de la alerta de Google Play Protect con Más detalles e Instalar de todas formas">
-        <rect width="320" height="190" fill="#0f172a"/>
-        <rect x="40" y="10" width="240" height="170" rx="20" fill="#f8fafc"/>
-        <path d="M70 40l14-6 14 6v12c0 9-6 15-14 18-8-3-14-9-14-18z" fill="#16a34a"/>
-        <path d="M78 48l5 5 8-9" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="108" y="46" font-family="Arial" font-size="12" font-weight="bold" fill="#0f172a">Bloqueado por Play Protect</text>
-        <text x="108" y="60" font-family="Arial" font-size="8" fill="#64748b">App no reconocida (fuera de Play Store)</text>
-        <text x="58" y="88" font-family="Arial" font-size="10" fill="#1a73e8" font-weight="bold" text-decoration="underline">Más detalles ▾</text>
-        <rect x="52" y="76" width="96" height="18" rx="9" fill="none" stroke="#34d399" stroke-width="2.5" stroke-dasharray="5 3"/>
-        <rect x="56" y="100" width="208" height="30" rx="8" fill="#e2e8f0"/>
-        <text x="160" y="119" text-anchor="middle" font-family="Arial" font-size="11" fill="#334155" font-weight="bold">Instalar de todas formas</text>
-        <rect x="52" y="97" width="216" height="36" rx="10" fill="none" stroke="#34d399" stroke-width="2.5" stroke-dasharray="5 3"/>
-        <rect x="56" y="142" width="208" height="28" rx="14" fill="#1a73e8"/>
-        <text x="160" y="160" text-anchor="middle" font-family="Arial" font-size="11" fill="#fff" font-weight="bold">Aceptar (no instalar)</text>
+        // Paso 3: Play Protect
+        `<svg viewBox="0 0 320 190" class="w-full rounded-xl ring-1 ring-foly-gray/40" role="img" aria-label="Simulación de Google Play Protect con Más detalles e Instalar de todas formas">
+        <rect width="320" height="190" fill="#222223"/>
+        <rect x="35" y="10" width="250" height="170" rx="16" fill="#FFFFFF"/>
+        <path d="M64 38l14-6 14 6v12c0 9-6 15-14 18-8-3-14-9-14-18z" fill="#DA291C"/>
+        <path d="M72 46l5 5 8-9" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="100" y="44" font-family="Arial" font-size="11.5" font-weight="bold" fill="#222223">Bloqueado por Play Protect</text>
+        <text x="100" y="58" font-family="Arial" font-size="8" fill="#8A8D8F">App privada fuera de Google Play Store</text>
+        <text x="50" y="86" font-family="Arial" font-size="10" fill="#201747" font-weight="bold">Más detalles ▾</text>
+        <rect x="46" y="74" width="94" height="18" rx="6" fill="none" stroke="#DA291C" stroke-width="2" stroke-dasharray="4 2"/>
+        <rect x="50" y="98" width="220" height="30" rx="6" fill="#E5E1E6"/>
+        <text x="160" y="117" text-anchor="middle" font-family="Arial" font-size="11" fill="#8E1E2B" font-weight="bold">Instalar de todas formas</text>
+        <rect x="46" y="95" width="228" height="36" rx="8" fill="none" stroke="#DA291C" stroke-width="2.5" stroke-dasharray="5 3"/>
+        <rect x="50" y="138" width="220" height="28" rx="6" fill="#201747"/>
+        <text x="160" y="156" text-anchor="middle" font-family="Arial" font-size="10" fill="#FFFFFF" font-weight="bold">Aceptar (cancelar instalación)</text>
       </svg>`
-    ];
+      ];
 
-    const STEPS = [
-      {
-        title: 'Salta la advertencia de Google Drive',
-        desc: [
-          'Como la APK pesa más de 100 MB, Google Drive muestra un aviso indicando que no puede escanearla en busca de virus. Es normal: toca el botón ',
-          'Descargar de todos modos',
-          ' (Download anyway) para continuar.'
-        ],
-        check: 'He confirmado la descarga en Google Drive'
-      },
-      {
-        title: 'Permite instalar desde orígenes desconocidos',
-        desc: [
-          'Al abrir el archivo .apk descargado, Android pedirá permiso a tu navegador. Ve a ',
-          'Ajustes → Confiar en esta fuente',
-          ', activa el interruptor y regresa para continuar con la instalación.'
-        ],
-        check: 'He activado el permiso de instalación'
-      },
-      {
-        title: 'Google Play Protect',
-        desc: [
-          'Si aparece la alerta de Play Protect por tratarse de una app privada fuera de Play Store, toca en ',
-          'Más detalles',
-          ' y luego en ',
-          'Instalar de todas formas',
-          '.'
-        ],
-        check: '¡Listo! La app se está instalando'
+      const STEPS = [
+        {
+          title: 'Salta el aviso de Google Drive',
+          desc: [
+            'Como la APK pesa más de 100 MB, Google Drive no puede analizarla en busca de virus y muestra un aviso. Descárgala solo desde este portal interno y toca el botón ',
+            'Descargar de todos modos',
+            ' (Download anyway).'
+          ],
+          check: 'He confirmado la descarga en Google Drive'
+        },
+        {
+          title: 'Permite instalar desde orígenes desconocidos',
+          desc: [
+            'Al abrir el archivo .apk descargado, Android pedirá permiso. Ve a ',
+            'Ajustes → Confiar en esta fuente',
+            ', activa el interruptor y regresa para continuar con la instalación.'
+          ],
+          check: 'He activado el permiso de instalación'
+        },
+        {
+          title: 'Google Play Protect',
+          desc: [
+            'Si aparece la alerta de Play Protect por ser una app privada fuera de Play Store, toca en ',
+            'Más detalles',
+            ' y luego en ',
+            'Instalar de todas formas',
+            '.'
+          ],
+          check: '¡Listo! La app se está instalando'
+        }
+      ];
+
+      /* ---------- Wizard ---------- */
+      const PROGRESS = [0, 33, 66, 100];
+
+      function renderWizard() {
+        const s = STEPS[step];
+        $('wiz-title').textContent = s.title;
+        $('wiz-desc').replaceChildren(...s.desc.map((t, i) =>
+          i % 2 === 1 ? el('strong', { class: 'text-foly-red font-black', text: t }) : document.createTextNode(t)));
+        $('wiz-illustration').innerHTML = ILLUSTRATIONS[step];
+        $('wiz-check-label').textContent = s.check;
+        $('wiz-check').checked = checks[step];
+        $('wiz-step-num').textContent = String(step + 1);
+
+        const pct = PROGRESS[checks.filter(Boolean).length];
+        $('wiz-bar').style.width = `${pct}%`;
+        $('wiz-percent').textContent = `${pct}%`;
+
+        $('wiz-prev').disabled = step === 0;
+        const last = step === STEPS.length - 1;
+        $('wiz-next').classList.toggle('hidden', last);
+        $('wiz-download').classList.toggle('hidden', !last);
       }
-    ];
 
-    /* ---------- Wizard ---------- */
-    function renderWizard() {
-      const s = STEPS[step];
-      $('wiz-title').textContent = s.title;
+      let lastFocus = null;
+      function openWizard(startStep = 0) {
+        lastFocus = document.activeElement;
+        step = startStep;
+        renderWizard();
+        $('wizard').classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+        $('wiz-close').focus();
+      }
+      function closeWizard() {
+        $('wizard').classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+      function goTo(n) {
+        step = Math.max(0, Math.min(STEPS.length - 1, n));
+        renderWizard();
+      }
 
-      // Descripción con negritas construidas como nodos (índices impares = énfasis)
-      const desc = $('wiz-desc');
-      desc.replaceChildren(...s.desc.map((t, i) => i % 2 === 1 ? el('strong', { class: 'text-emerald-300', text: t }) : document.createTextNode(t)));
+      /** Mantiene el foco del teclado dentro del modal. */
+      function trapFocus(e) {
+        const nodes = [...$('wizard').querySelectorAll('button:not([disabled]):not(.hidden), input, a[href]')]
+          .filter((n) => n.offsetParent !== null);
+        if (!nodes.length) return;
+        const first = nodes[0];
+        const last = nodes[nodes.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
 
-      // Las ilustraciones son literales estáticos del propio código (no provienen de versions.json)
-      $('wiz-illustration').innerHTML = ILLUSTRATIONS[step];
+      /* ---------- Eventos ---------- */
+      $('retry-btn').addEventListener('click', loadVersions);
+      $('copy-btn').addEventListener('click', copyLink);
+      $('guide-btn').addEventListener('click', () => openWizard(0));
 
-      $('wiz-check-label').textContent = s.check;
-      $('wiz-check').checked = checks[step];
-      $('wiz-step-num').textContent = String(step + 1);
+      // Descargar: abre el wizard y lanza la descarga en una pestaña nueva.
+      $('download-btn').addEventListener('click', () => {
+        openWizard(0);
+        triggerDownload();
+      });
 
-      const done = checks.filter(Boolean).length;
-      const pct = Math.round((done / 3) * 100);
-      $('wiz-bar').style.width = `${pct === 99 ? 100 : pct}%`;
-      $('wiz-percent').textContent = `${pct === 99 ? 100 : pct}%`;
+      $('qr-img').addEventListener('error', () => { $('qr-img').alt = 'No se pudo generar el QR. Usa "Copiar enlace directo".'; });
 
-      $('wiz-prev').disabled = step === 0;
-      const last = step === STEPS.length - 1;
-      $('wiz-next').classList.toggle('hidden', last);
-      $('wiz-download').classList.toggle('hidden', !last);
-    }
+      $('wiz-close').addEventListener('click', closeWizard);
+      $('wiz-backdrop').addEventListener('click', closeWizard);
+      $('wiz-prev').addEventListener('click', () => goTo(step - 1));
+      $('wiz-next').addEventListener('click', () => goTo(step + 1));
+      $('wiz-download').addEventListener('click', triggerDownload);
+      $('wiz-download-link').addEventListener('click', triggerDownload);
+      $('wiz-check').addEventListener('change', (e) => {
+        const current = step;
+        checks[current] = e.target.checked;
+        saveState();
+        renderWizard();
+        if (e.target.checked && current < STEPS.length - 1) setTimeout(() => { if (step === current) goTo(current + 1); }, 350);
+      });
 
-    let lastFocus = null;
-    function openWizard(startStep = 0) {
-      lastFocus = document.activeElement;
-      step = startStep;
-      renderWizard();
-      $('wizard').classList.remove('hidden');
-      document.body.classList.add('overflow-hidden');
-      $('wiz-close').focus();
-    }
-    function closeWizard() {
-      $('wizard').classList.add('hidden');
-      document.body.classList.remove('overflow-hidden');
-      if (lastFocus && lastFocus.focus) lastFocus.focus();
-    }
-    function goTo(n) {
-      step = Math.max(0, Math.min(STEPS.length - 1, n));
-      renderWizard();
-    }
+      document.addEventListener('keydown', (e) => {
+        if ($('wizard').classList.contains('hidden')) return;
+        if (e.key === 'Escape') closeWizard();
+        else if (e.key === 'Tab') trapFocus(e);
+      });
 
-    /* ---------- Eventos ---------- */
-    $('retry-btn').addEventListener('click', loadVersions);
-    $('copy-btn').addEventListener('click', copyLink);
-    $('guide-btn').addEventListener('click', () => openWizard(0));
-
-    // Descargar: abre el wizard y lanza la descarga en una pestaña nueva.
-    $('download-btn').addEventListener('click', () => {
-      openWizard(0);
-      triggerDownload();
-    });
-
-    $('wiz-close').addEventListener('click', closeWizard);
-    $('wiz-backdrop').addEventListener('click', closeWizard);
-    $('wiz-prev').addEventListener('click', () => goTo(step - 1));
-    $('wiz-next').addEventListener('click', () => goTo(step + 1));
-    $('wiz-download').addEventListener('click', triggerDownload);
-    $('wiz-download-link').addEventListener('click', triggerDownload);
-    $('wiz-check').addEventListener('change', (e) => {
-      checks[step] = e.target.checked;
-      saveState();
-      renderWizard();
-      if (e.target.checked && step < STEPS.length - 1) setTimeout(() => goTo(step + 1), 350);
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if ($('wizard').classList.contains('hidden')) return;
-      if (e.key === 'Escape') closeWizard();
-      else if (e.key === 'ArrowRight' && step < STEPS.length - 1) goTo(step + 1);
-      else if (e.key === 'ArrowLeft' && step > 0) goTo(step - 1);
-    });
-
-    /* ---------- Init ---------- */
-    loadState();
-    loadVersions();
-  })();
+      /* ---------- Inicio ---------- */
+      loadVersions();
+    })();
   </script>
 </body>
-</html>
 
+</html>
